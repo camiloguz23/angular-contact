@@ -1,0 +1,22 @@
+<div class="content">
+  <p><mat-icon>email</mat-icon>{{ "correo@correo.com" }}</p>
+  <p><mat-icon>location_on</mat-icon> {{ "Dirección 1A B 1234" }}</p>
+  <div class="phones">
+    <mat-icon>phone</mat-icon>
+    <div>
+      <p>{{ "3238082778" | phone }}</p>
+      <p>{{ "3238082778" | phone }}</p>
+    </div>
+  </div>
+  <div class="social">
+    <a href="#">
+      <fa-icon [icon]="faFacebook" class="social-icon"></fa-icon>
+    </a>
+    <a href="#">
+      <fa-icon [icon]="faTwitter" class="social-icon"></fa-icon>
+    </a>
+    <a href="#">
+      <fa-icon [icon]="faInstagram" class="social-icon"></fa-icon>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h3>Contacto</h3>
+  <div class="section">
+    <select
+      [class]="{ select: true, error: validationField('sex').minAge }"
+      formControlName="sex"
+    >
+      <option value="" disabled selected>Sexo *</option>
+      @for (item of sexoption; track item.value) {
+      <option value="{{ item.value }}">
+        {{ item.name }}
+      </option>
+      }
+    </select>
+    <input
+      type="date"
+      formControlName="brithdayDate"
+      placeholder="Fecha de Nacimiento"
+      [class]="{ input: true, error: validationField('brithdayDate').minAge }"
+    />
+  </div>
+  <div class="section">
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="Nombre *"
+      [class]="{ input: true, error: validationField('name').minAge }"
+    />
+    <input
+      type="text"
+      formControlName="lastName"
+      placeholder="Apellidos *"
+      [class]="{ input: true, error: validationField('lastName').minAge }"
+    />
+  </div>
+  <input
+    type="email"
+    formControlName="email"
+    placeholder="Email *"
+    [class]="{ input: true, error: validationField('email').minAge }"
+  />
+  <input
+    type="text"
+    formControlName="address"
+    placeholder="Dirección *"
+    [class]="{ input: true, error: validationField('address').minAge }"
+  />
+  <div class="section">
+    <input type="text" placeholder="Casa/apartamento" class="input" />
+    <select
+      [class]="{ select: true, error: validationField('country').minAge }"
+      formControlName="country"
+    >
+      <option value="" disabled selected>Pais *</option>
+      @for (item of countryoption; track item.value) {
+      <option value="{{ item.value }}">
+        {{ item.name }}
+      </option>
+      }
+    </select>
+  </div>
+  <div class="section">
+    @if (showDeparmentSelect) {
+
+    <select class="select" formControlName="Deparment">
+      <option value="" disabled selected>Departamento *</option>
+      @for (item of deparmentoption; track item.value) {
+      <option value="{{ item.value }}">
+        {{ item.name }}
+      </option>
+      }
+    </select>
+    }
+    <select
+      [class]="{ select: true, error: validationField('City').minAge }"
+      formControlName="City"
+    >
+      <option value="" disabled selected>Ciudad *</option>
+      @for (item of cityoption; track item.value) {
+      <option value="{{ item.value }}">
+        {{ item.name }}
+      </option>
+      }
+    </select>
+  </div>
+  <textarea
+    name=""
+    formControlName="comment"
+    id=""
+    [class]="{ input: true, error: validationField('comment').minAge }"
+    [placeholder]="'Comentario *'"
+  ></textarea>
+  <div class="content_btn">
+    <button
+      [disabled]="
+        validationField('brithdayDate').isrequerid ||
+        validationField('name').isrequerid ||
+        validationField('lastName').isrequerid ||
+        validationField('email').isrequerid ||
+        validationField('address').isrequerid ||
+        validationField('country').isrequerid ||
+        validationField('City').isrequerid ||
+        validationField('comment').isrequerid
+      "
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+  @if (validationField('brithdayDate').minAge) {
+  <div>Debes tener al menos 18 años</div>
+  }
+</form>

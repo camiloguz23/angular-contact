@@ -1,0 +1,49 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h3 {
+    color: var(--color-green);
+    font-size: 28px;
+  }
+
+  .section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+  }
+
+  .input {
+    width: 100%;
+    padding: 6px;
+  }
+
+  .error {
+    border: 1px solid red;
+  }
+
+  .select {
+    width: 100%;
+    padding: 6px;
+  }
+
+  .content_btn {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+
+    button {
+      padding: 6px 10px;
+      background-color: var(--color-green);
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 22px;
+
+      &:disabled {
+        background-color: rgb(148, 144, 144);
+      }
+    }
+  }
+}
