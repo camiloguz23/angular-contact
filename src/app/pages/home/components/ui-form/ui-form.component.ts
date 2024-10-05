@@ -76,7 +76,6 @@ export class UiFormComponent implements OnInit {
         name: this.form.get('name')?.value ?? '',
         sex: this.form.get('sex')?.value ?? '',
       });
-      console.log(this.form.value);
       this.route.navigate(['/list']);
     }
   }
